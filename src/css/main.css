@@ -1,0 +1,482 @@
+:root {
+    --verde: greenyellow;
+    --verdeOscuro: rgb(138, 207, 33);
+    --azulClaro: #00c3ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    background-color: black;
+}
+
+/** UTILIDADES */
+
+.green-button,
+.green-link {
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 10px 40px;
+    background-color: var(--verde);
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.green-link {
+    background-color: transparent;
+    position: relative;
+    color: var(--verde);
+    font-size: 16px;
+}
+
+.green-link::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    background-color: var(--verde);
+}
+
+.green-link:hover::before {
+    transform: scaleX(1);
+}
+
+.green-button:hover {
+    background-color: var(--verdeOscuro);
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/** NAVBAR */
+
+.show {
+    display: flex !important;
+}
+
+nav {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0 1%;
+
+    & ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    & ul li>a {
+        display: block;
+        position: relative;
+        padding: 20px 15px 10px 15px;
+        text-decoration: none;
+        color: white;
+    }
+
+    & ul li .link::before {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        background-color: white;
+    }
+
+    & ul li .link:hover::before {
+        transform: scaleX(1);
+    }
+
+    .more {
+        display: none;
+    }
+
+    .menu {
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        min-width: 200px;
+        background-color: white;
+        margin-top: 45px;
+
+        & a {
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+        & a:hover {
+            background-color: black;
+            color: white;
+        }
+    }
+
+    .mobile {
+        display: none;
+
+        .header {
+            background-color: black;
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 5px;
+
+            & a {
+                color: white;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            #bmenu {
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                color: white;
+            }
+        }
+
+        .links {
+            display: none;
+            flex-direction: column;
+            position: relative;
+            z-index: 200;
+            background-color: black;
+
+            & a {
+                font-size: 20px;
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: white;
+            }
+
+            & a:hover {
+                color: black;
+                background-color: white;
+            }
+        }
+    }
+
+    @media screen and (max-width: 990px) {
+        .link-hide {
+            display: none;
+        }
+
+        .more {
+            display: flex;
+            height: 49px;
+        }
+    }
+
+    @media screen and (max-width: 594px) {
+        display: block;
+        width: 100%;
+        padding: 0;
+
+        & ul {
+            display: none;
+        }
+
+        .mobile {
+            display: block;
+        }
+    }
+}
+
+/** HEADER */
+
+header {
+    background-image: url("../img/halo-infinite-cover-darkmode.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    @media screen and (max-width: 594px) {
+        background-position-y: 20px;
+        height: 50vh;
+    }
+}
+
+/** Banner */
+
+#banner {
+    font-size: 1.8em;
+    text-align: center;
+    padding: 40px;
+    width: 500px;
+    position: absolute;
+    z-index: 100;
+    top: 200px;
+    right: 100px;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    & h2 {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+    }
+
+
+
+    @media screen and (max-width: 990px) {
+        border-bottom: 1px solid rgb(58, 58, 58);
+        position: initial !important;
+        z-index: 100;
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+/** Videos */
+
+#videos {
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+
+    background-image: url("../img/bg-videos.png");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    & h2 {
+        font-size: 2.3rem;
+        margin-bottom: 15px;
+
+        @media (max-width: 973px) {
+            margin-top: 10px;
+        }
+    }
+
+    & p {
+        font-size: 18px;
+    }
+
+    .w-75 {
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    #slider {
+        & #controls {
+            display: flex;
+            justify-content: center;
+        }
+
+        display: flex;
+        justify-content: center;
+    }
+
+    #slider #controls .prev,
+    #slider #controls .next {
+        border: none;
+        padding: 10px;
+        height: 50px;
+        width: 80px;
+        display: flex;
+        background-color: rgb(58, 58, 58);
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        color: white;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(37, 37, 37);
+        }
+    }
+
+    #current {
+        width: 1280px;
+        margin: 50px auto;
+        border: solid 2px var(--azulClaro);
+        object-fit: cover;
+
+        @media screen and (max-width: 1278px) {
+            & iframe {
+                height: 400px;
+            }
+
+            max-width: 80%;
+        }
+
+        @media screen and (max-width: 1278px) {
+            max-width: 90%;
+        }
+    }
+
+    #video-list {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .item {
+            border: 1px solid var(--azulClaro);
+            cursor: pointer;
+            min-width: 320px;
+            height: auto;
+            position: relative;
+
+            & img {
+                object-fit: contain;
+                min-width: 320px;
+                height: auto;
+            }
+
+            :hover {
+                & img {
+                    transition: opacity 0.3s ease;
+                    object-fit: contain;
+                    opacity: 0.6;
+                }
+            }
+
+            & a::before {
+                font-family: "Material Icons";
+                content: "play_arrow";
+                font-size: 20px;
+                color: white;
+                position: absolute;
+                display: block;
+                top: 65px;
+                left: 135px;
+                width: 50px;
+                height: 50px;
+                background-color: black;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 100;
+            }
+        }
+
+        @media screen and (max-width: 990px) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 973px) {
+        padding: 20px;
+    }
+}
+
+/** Multiplayer */
+
+#multi-player {
+    height: 100vh;
+    background-image: url("../img/bg-multiplayer.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    .info {
+        line-height: 1.2;
+        padding: 40px;
+        width: 600px;
+        margin-right: 30px;
+        transition: background-color .3s ease;
+
+        & h2 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+        }
+
+        & p {
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: 1260px) {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 85%;
+        }
+
+        @media screen and (max-width: 990px) {
+            margin: 0 auto;
+        }
+    }
+}
+
+/* Get the game - store */
+
+#get-the-game {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+
+
+    & h3 {
+        margin: 0;
+    }
+
+    .item-store {
+        gap: 100px;
+        display: flex;
+
+        .right {
+            text-align: left;
+
+            @media screen and (max-width: 990px) {
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 990px) {
+            gap: 20px;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        & img {
+            width: 400px;
+        }
+    }
+}
+
+/** Footer */
+
+footer {
+    height: 800px;
+    background-image: url("../img/master-chief-darkmode.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
